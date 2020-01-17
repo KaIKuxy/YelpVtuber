@@ -4,7 +4,6 @@ const Vtuberprofile = require("../models/vtuberprofile");
 const middleware = require("../middleware");
 
 router.get("/", (req, res) => {
-    // console.log(req.user);
     // Get all vtuber profiles from DB
     Vtuberprofile.find({}, (err, allVtuberprofiles) => {
         if (err || !allVtuberprofiles) {
@@ -15,7 +14,6 @@ router.get("/", (req, res) => {
             res.render("vtuberprofile/index", {vtuberlist: allVtuberprofiles, currentUser: req.user});
         }
     });
-    // res.render("vtuberlist", {vtuberlist: vtuberlist});
 });
 
 // Create
@@ -38,7 +36,6 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
             res.redirect("/vtuberlist");
         }
     });
-    // vtuberlist.push(newVtuber);
 });
 
 router.get("/new", middleware.isLoggedIn, (req, res) => {
