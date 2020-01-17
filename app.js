@@ -23,7 +23,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect(process.env.DATABASEURL, {
+mongoose.connect(process.env.DATABASEURL || "mongodb://localhost/yelp_vtuber", {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
