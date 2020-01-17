@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+
+<div class="container" style="margin-top: 10px">
+    <div class="row">
+        <h1 class="col-12 text-center">Add New Comment to <%= vtuber.name %></h1>
+        <div style="width: 50%; margin: 20px auto;">
+            <form class="col-12" action="/vtuberlist/<%= vtuber._id %>/comments", method="POST" style="margin-bottom: 20px;">
+                <div class="form-group">
+                    <input class="form-control text-center" type="text" placeholder="text" name="comment[text]" id="VtuberName">
+                </div>
+        
+                <button class="btn btn-danger btn-block"> Submit </button>
+            </form>
+            <a href="/vtuberlist" class="col-12">Go Back</a>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("../partials/footer") %>
