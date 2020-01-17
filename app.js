@@ -23,8 +23,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-const uri = "mongodb+srv://xymiku:kaiku1019@yelpvtuber-3hsre.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(uri, {
+mongoose.connect(process.env.DATABASEURL, {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
@@ -32,7 +31,7 @@ mongoose.connect(uri, {
 }).catch(err => {
     console.err("Error: " + err.message);
 });
-// mongoose.connect("mongodb://localhost/yelp_vtuber");
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -62,5 +61,5 @@ app.use("/vtuberlist", vtuberprofileRoutes);
 app.use("/", indexRoutes);
 
 app.listen(process.env.PORT || 3000, process.env.IP, () => {
-    console.log("server started...");
+    console.log("Server started...");
 });
